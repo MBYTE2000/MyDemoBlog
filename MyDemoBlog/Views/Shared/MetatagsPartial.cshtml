@@ -1,0 +1,20 @@
+﻿@if (ViewBag.Title == null)
+{
+    <title>MBYTE2000's blog</title>
+}
+else
+{
+    <title>@ViewBag.Title</title>
+}
+
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+@if (ViewBag.Description != null)
+{
+    <meta name="description" content="@ViewBag.Description" />
+}
+@if(ViewBag.KeyWords != null)
+{
+    <meta name="keywords" content="@ViewBag.KeyWords">
+}
