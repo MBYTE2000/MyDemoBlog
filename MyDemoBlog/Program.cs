@@ -59,8 +59,9 @@ namespace MyDemoBlog
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapAreaControllerRoute("admin", "Admin", "{controller=Admin}/{action=Index}/{id?}");
+
             app.MapDefaultControllerRoute();
+            app.MapAreaControllerRoute("admin", "Admin", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             app.Run();
         }
     }

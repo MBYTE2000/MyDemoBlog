@@ -25,14 +25,9 @@ namespace MyDemoBlog.Controllers
             return View(new LoginViewModel());
         }
 
-        public UserManager<IdentityUser> GetUserManager()
-        {
-            return userManager;
-        }
-
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl, UserManager<IdentityUser> userManager)
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (ModelState.IsValid) 
             {

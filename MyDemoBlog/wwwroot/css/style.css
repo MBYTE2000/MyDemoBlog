@@ -902,3 +902,11 @@ p {
         margin-top:30px;
     }
 }
+
+.login-box{
+    padding: 15px 0;
+
+    label{
+             display: block;
+         }
+}
