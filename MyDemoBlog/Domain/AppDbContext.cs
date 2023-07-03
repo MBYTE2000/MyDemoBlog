@@ -11,7 +11,7 @@ namespace MyDemoBlog.Domain
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -43,7 +43,7 @@ namespace MyDemoBlog.Domain
 
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
-                RoleId = "AF936675-90FC-47E3-A2DE-9A03231018D5",
+                RoleId = "4855F6EF-D1E1-4A61-BA65-D41171611686",
                 UserId = "BBC859EB-01D4-4B97-941A-0E3F7C007794"
             });
 
