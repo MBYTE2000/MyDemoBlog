@@ -13,7 +13,7 @@ namespace MyDemoBlog.Controllers
         }
         public IActionResult Index()
         {
-            return View(dataManager.ArticleRepository);
+            return View(dataManager.ArticleRepository.GetAllArticles());
         }
     }
 }

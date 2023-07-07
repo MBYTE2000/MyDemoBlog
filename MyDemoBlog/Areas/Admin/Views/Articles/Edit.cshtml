@@ -1,0 +1,27 @@
+﻿@model Article
+<script src="~/js/ckeditor5/ckeditor.js"></script>
+
+Редактирование
+
+<form>
+    <label asp-for="Title"></label>
+    <input asp-for="Title" />
+
+    <label asp-for="ShortTitle"></label>
+    <input asp-for="ShortTitle" />
+
+    <label asp-for="DateOfCreate"></label>
+    <input asp-for="DateOfCreate" />
+
+    <label asp-for="Text"></label>
+    <textarea asp-for="Text"></textarea>
+
+    <input type="submit" value="сохранить" />
+</form>
+
+<script>
+    window.onload = function() {
+        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Text)');
+        newCKEdit.updateElement();
+    }
+</script>

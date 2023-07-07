@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<!--
+ * A Design by GraphBerry
+ * Author: GraphBerry
+ * Author URL: http://graphberry.com
+ * License: http://graphberry.com/pages/license
+-->
+<html lang="en">
+
+<head>
+    @await Html.PartialAsync("MetatagsPartial");
+    @await Html.PartialAsync("CssPartial");
+    @await Html.PartialAsync("ImagesPartial");
+</head>
+
+<body>
+    @await Html.PartialAsync("NavBarPartial");
+   
+    @RenderBody()
+
+    @await Html.PartialAsync("FooterPartial");
+
+    @await Html.PartialAsync("ScrollUpPartial");
+    @await Html.PartialAsync("ScriptsPartial");
+</body>
+</html>

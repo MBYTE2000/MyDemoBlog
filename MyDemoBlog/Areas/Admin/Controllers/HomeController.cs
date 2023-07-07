@@ -6,14 +6,14 @@ namespace MyDemoBlog.Areas.Admin.Controllers
     [Area("Admin")]
     public class HomeController : Controller
     {
-        DataManager _dataManager;
+        private readonly DataManager dataManager;
         public HomeController(DataManager dataManager)
         {
-                _dataManager = dataManager;
+                this.dataManager = dataManager;
         }
         public IActionResult Index()
         {
-            return View(_dataManager.ArticleRepository);
+            return View(dataManager.ArticleRepository.GetAllArticles());
         }
     }
 }

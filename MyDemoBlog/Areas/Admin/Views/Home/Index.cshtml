@@ -1,9 +1,33 @@
-﻿@using MyDemoBlog.Domain.Repos.EF;
-@model ArticleRepository;
+﻿@model IQueryable<Article>;
+
+<div class="align-content-lg-center">
 <H1>Admin area</H1>
 
-@foreach (var item in Model.GetAllArticles())
-{
-    <h2>@item.Title  @item.DateOfCreate</h2>
-}
-
+    <div class="section primary-section" id="service">
+        <div class="container">
+            <!-- Start title section -->
+            <div class="title">
+                <h1>Articles</h1>
+            </div>
+            <div class="row-fluid">
+                @if (Model.Any())
+                {
+                    @foreach (var article in Model)
+                    {
+                        <div class="span4">
+                            <div class="centered service">
+                            <div class="circle-border zoom-in">
+                                <img class="img-circle" src="images/@article.Image"images/Service1.png">
+                            </div>
+                            <h3>@article.Title</h3>
+                            @article.Title
+                        </div>
+                            <a asp-area="Admin"  asp-controller="Articles" asp-action="Edit" asp-route-id="@article.Id">Изменить статью</a>
+                    </div>
+                    }
+                }
+                <a asp-controller="Account" asp-action="Logout">Выйти</a>
+            </div>
+        </div>
+    </div>
+</div> 
