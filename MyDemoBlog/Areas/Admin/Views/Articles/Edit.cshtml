@@ -1,5 +1,6 @@
 ﻿@model Article
-<script src="~/js/ckeditor5/ckeditor.js"></script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<script src="https://cdn.tiny.cloud/1/z90orpgo4b6d6hjrmepi4vh6vtjqqehkwaz99fdlifb0f3fx/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
 Редактирование
 
@@ -15,13 +16,16 @@
 
     <label asp-for="Text"></label>
     <textarea asp-for="Text"></textarea>
+    <span asp-validation-for="Text"></span>
 
-    <input type="submit" value="сохранить" />
+    <label asp-for="Image"></label>
+    <input asp-for="Image" />
+
+    <input type="submit" formmethod="post" value="сохранить" />
 </form>
 
 <script>
-    window.onload = function() {
-        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Text)');
-        newCKEdit.updateElement();
-    }
+    tinymce.init({
+        selector: 'textarea#Text'
+    });
 </script>

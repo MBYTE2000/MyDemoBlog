@@ -40,20 +40,17 @@ namespace MyDemoBlog.Areas.Admin.Controllers
             return View(article);
         }
 
-        // POST: ArticlesController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+        //POST: ArticlesController/Edit/5
+        [HttpPost]
+        public ActionResult Edit(string id, Article model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Id = new Guid(id);
+                dataManager.ArticleRepository.SaveArticle(model);
+            }
+            return RedirectToAction("Index", "Home");
+        }
 
         // GET: ArticlesController/Delete/5
         public ActionResult Delete(int id)
