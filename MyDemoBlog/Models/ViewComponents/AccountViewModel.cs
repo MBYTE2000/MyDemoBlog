@@ -2,7 +2,7 @@
 
 namespace MyDemoBlog.Models.ViewComponents
 {
-    public class LoginViewModel
+    public class AccountViewModel
     {
         [Required]
         [Display(Name = "Логин")]

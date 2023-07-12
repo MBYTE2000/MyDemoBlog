@@ -8,19 +8,19 @@
 <html lang="en">
 
 <head>
-    @await Html.PartialAsync("MetatagsPartial");
-    @await Html.PartialAsync("CssPartial");
-    @await Html.PartialAsync("ImagesPartial");
+    @await Html.PartialAsync("MetatagsPartial")
+    @await Html.PartialAsync("CssPartial")
+    @await Html.PartialAsync("ImagesPartial")
 </head>
 
 <body>
-    @await Html.PartialAsync("NavBarPartial");
+    @await Html.PartialAsync("NavBarPartial")
    
     @RenderBody()
 
-    @await Html.PartialAsync("FooterPartial");
+    @await Html.PartialAsync("FooterPartial")
 
-    @await Html.PartialAsync("ScrollUpPartial");
-    @await Html.PartialAsync("ScriptsPartial");
+    @await Html.PartialAsync("ScrollUpPartial")
+    @await Html.PartialAsync("ScriptsPartial")
 </body>
 </html>
