@@ -19,7 +19,8 @@ namespace MyDemoBlog
                 .AddDbContext<AppDbContext>(x => x.UseSqlServer(Config.ConnectionString))
                 .AddIdentity<IdentityUser, IdentityRole>(opts =>
                 {
-                    opts.User.RequireUniqueEmail = true;
+                    opts.Password.RequiredLength = 4;
+                    opts.User.RequireUniqueEmail = false;
                     opts.Password.RequireLowercase = false;
                     opts.Password.RequireUppercase = false;
                     opts.Password.RequireDigit = false;

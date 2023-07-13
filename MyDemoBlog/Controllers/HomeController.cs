@@ -10,17 +10,15 @@ namespace MyDemoBlog.Controllers
     {
         private readonly DataManager dataManager;
         private readonly SignInManager<IdentityUser> signInManager;
-        public HomeController(DataManager dataManager)
+        public HomeController(DataManager dataManager, SignInManager<IdentityUser> signInManager)
         {
             this.dataManager = dataManager;
+            this.signInManager = signInManager;
         }
         public IActionResult Index()
         {
-            //if (signInManager.IsSignedIn(HttpContext.User))
-            //{
-
-            //}
-            return View(dataManager.ArticleRepository.GetAllArticles());
+                ViewBag.IsSignIn = signInManager.IsSignedIn(HttpContext.User);
+                return View(dataManager.ArticleRepository.GetAllArticles());
         }
 
         public IActionResult View(string id) 

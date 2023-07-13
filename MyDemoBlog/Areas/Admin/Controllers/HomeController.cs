@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using MyDemoBlog.Domain;
 
 namespace MyDemoBlog.Areas.Admin.Controllers
@@ -7,12 +8,11 @@ namespace MyDemoBlog.Areas.Admin.Controllers
     public class HomeController : Controller
     {
         private readonly DataManager dataManager;
-        public HomeController(DataManager dataManager)
+        public HomeController(DataManager dataManager, SignInManager<IdentityUser> signInManager)
         {
-                this.dataManager = dataManager;
+            this.dataManager = dataManager;
         }
-        public IActionResult Index()
-        {
+        public IActionResult Index() { 
             return View(dataManager.ArticleRepository.GetAllArticles());
         }
     }

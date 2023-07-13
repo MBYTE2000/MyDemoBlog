@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Azure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using MyDemoBlog.Models.ViewComponents;
+using System.Collections.Generic;
 
 namespace MyDemoBlog.Controllers
 {
@@ -31,7 +33,7 @@ namespace MyDemoBlog.Controllers
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user = new IdentityUser() { UserName = model.Login, NormalizedUserName = model.Login.ToUpper(), EmailConfirmed = true, };
+                IdentityUser user = new IdentityUser() { UserName = model.Login, NormalizedUserName = model.Login.ToUpper(), EmailConfirmed = true};
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -39,13 +41,8 @@ namespace MyDemoBlog.Controllers
                     await signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
-
-                foreach (var item in result.Errors)
-                {
-                    await Console.Out.WriteLineAsync($"uWu {item}");
-                }
-
-                ModelState.AddModelError(nameof(model.Login), "Error");
+                var message = string.Join(", ", result.Errors.Select(x => "Code " + x.Code + " Description" + x.Description));
+                ModelState.AddModelError(nameof(model.Login), message);
             }
             return View(model);
         }

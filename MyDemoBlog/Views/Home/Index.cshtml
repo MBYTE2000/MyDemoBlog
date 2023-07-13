@@ -15,7 +15,14 @@
                 <h2 class="fittext2">Welcome to @Config.ProjectName</h2>
                 <h4>By MBYTE2000</h4>
                 <p>text text text text text text text text text text text text text text text text </p>
-                <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="/" class="da-link button">Login</a>
+                @if (ViewBag.IsSignIn)
+                {
+                    <a asp-controller="Account" asp-action="Logout" asp-route-returnUrl="/" class="da-link button">Logout</a>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="/" class="da-link button">Login</a>
+                }
             </div>
         </div>
     </div>
