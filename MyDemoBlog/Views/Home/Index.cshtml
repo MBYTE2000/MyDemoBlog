@@ -14,9 +14,11 @@
             <div class="da-slide">
                 <h2 class="fittext2">Welcome to @Config.ProjectName</h2>
                 <h4>By MBYTE2000</h4>
-                <p>text text text text text text text text text text text text text text text text </p>
+                <p>text text text text text text text text text text text text text text text text <br /></p>
+                
                 @if (ViewBag.IsSignIn)
                 {
+                    <h5>Hello @User.Identity.Name</h5>
                     <a asp-controller="Account" asp-action="Logout" asp-route-returnUrl="/" class="da-link button">Logout</a>
                 }
                 else
